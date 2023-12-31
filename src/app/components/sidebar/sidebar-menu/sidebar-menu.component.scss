@@ -1,0 +1,34 @@
+.sidebar_menu_ul {
+    padding: unset;
+    li {
+      list-style: none;
+      padding-block: 5px;
+      .sidebar_menu {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: var(--svg-color);
+        padding: 10px;
+        border-radius: 8px;
+        svg {
+          width: var(--fs23);
+          fill: transparent !important;
+          color: var(--svg-color);
+          stroke: currentColor;
+          stroke-width: 2px;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          background-color: transparent;
+        }
+        &.active{
+            background-color: var(--blue-color);
+            color: white;
+            svg {
+                color: white;
+                stroke: currentColor;
+              }
+        }
+      }
+    }
+  }

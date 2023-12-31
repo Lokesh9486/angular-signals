@@ -1,0 +1,214 @@
+<div class="employee-con">
+  <app-header-banner [title]="'Employee'"></app-header-banner>
+  <div class="d-flex align-items-center justify-content-between search-con">
+    <div class="d-flex input-con">
+      <input type="input" placeholder="Search Employee" (input)="searchEmployee($event)"/>
+      <button type="button">
+        <img src="../../../assets/images/search.png" alt="search" />
+      </button>
+    </div>
+    <button type="button" class="add-btn" (click)="openModal('custom-modal-1')">Add Employee</button>
+  </div>
+  <div class="table-con">
+    <div class="main-table-con">
+      <table class="table">
+        <thead >
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">Date of joining</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Project</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of actualData() | pagination : currentPage() : countPerPage() ;
+          track $index) {
+          <tr>
+            <td scope="row">
+              <app-user-details [data]="item.userDetails"></app-user-details>
+            </td>
+            <td class="title_light">{{ item.email }}</td>
+            <td class="title_light">{{ item.mobile }}</td>
+            <td class="title_light">
+              {{ item.dateOfJoining | date : "MMM dd, yyyy" }}
+            </td>
+            <td class="title_light">{{ item.salary }}</td>
+            <td class="title_light">{{ item.project }}</td>
+            <td>
+              <div class="d-flex gap-2">
+                <button type="button" class="delete-edit-icon" (click)="editUser($index)">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"
+                    ></path>
+                    <path
+                      d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"
+                    ></path>
+                    <path d="M16 5l3 3"></path>
+                  </svg>
+                </button>
+                <button type="button" class="delete-edit-icon" (click)="deleteUser($index)">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M4 7l16 0"></path>
+                    <path d="M10 11l0 6"></path>
+                    <path d="M14 11l0 6"></path>
+                    <path
+                      d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"
+                    ></path>
+                    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+                  </svg>
+                </button>
+              </div>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+    <div class="d-flex aling-items-center justify-content-end gap-3">
+      <div class="d-flex align-items-center gap-2">
+        <p class="title_light">Items per page :</p>
+        <select
+          name=""
+          id=""
+          class="select-per-page"
+          (input)="selectchange($event)"
+        >
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="20">20</option>
+        </select>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <p class="title_light">
+          {{ paginationCount() }}-{{
+           ( paginationCount() + countPerPage() - 1 > actualData().length)
+              ? actualData().length
+              : paginationCount() + countPerPage() - 1
+          }}
+          of {{ actualData().length }}
+        </p>
+        <div class="prev_after_arrow">
+          <button type="button" >
+            <svg
+              viewBox="0 0 24 24"
+              focusable="false"
+              (click)="privousFirst()"
+            >
+              <path
+                d="M18.41 16.59L13.82 12l4.59-4.59L17 6l-6 6 6 6zM6 6h2v12H6z"
+              ></path>
+            </svg>
+          </button>
+          <button type="button" (click)="privouspage()">
+            <svg
+              viewBox="0 0 24 24"
+              focusable="false"
+            >
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+            </svg>
+          </button>
+          <button type="button" (click)="nextpage()">
+            <svg
+              viewBox="0 0 24 24"
+              focusable="false"
+            >
+              <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
+            </svg>
+          </button>
+          <button type="button" (click)="nextLast()">
+            <svg
+              viewBox="0 0 24 24"
+              focusable="false"
+            >
+              <path
+                d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6zM16 6h2v12h-2z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<modal id="custom-modal-1">
+  <div class="custom-modal">
+    <div class="custom-modal-body">
+        <app-title-bold [title]="typeOfForm"></app-title-bold>
+        <form [formGroup]="secondReactiveForm" (submit)="formSubmit()">
+          <div class="row mb-4 mt-4">
+            <div class="col-6">
+              <input type="text" placeholder="Name" formControlName="name">
+              <div *ngIf="secondFormControl('name')?.invalid  &&
+              (secondFormControl('name')?.touched ||isSecondFormSubmit)"  class="text-danger">
+              <p><span *ngIf="secondFormControl('name')?.errors?.['required']">Name field is required</span></p>
+              <p><span *ngIf="secondFormControl('name')?.errors?.['minlength']">Minium length must be 3</span></p>
+              </div>
+            </div>
+            <div class="col-6">
+              <input type="text" placeholder="Position"  formControlName="position">
+              <div *ngIf="secondFormControl('position')?.invalid  &&
+              (secondFormControl('position')?.touched ||isSecondFormSubmit)"  class="text-danger">
+              <p><span *ngIf="secondFormControl('position')?.errors?.['required']">position field is required</span></p>
+              </div>
+            </div>
+          </div> 
+          <div class="row mb-4">
+            <div class="col">
+              <input type="text" placeholder="Email" formControlName="email">
+              <div *ngIf="secondFormControl('email')?.invalid  &&
+              (secondFormControl('email')?.touched ||isSecondFormSubmit)"  class="text-danger">
+              <p><small *ngIf="secondFormControl('email')?.errors?.['required']">email field is required</small></p>
+              <p><small *ngIf="secondFormControl('email')?.errors?.['email']">Invalid email</small></p>
+              </div>
+            </div>
+            <div class="col">
+              <input type="text" placeholder="Mobile" formControlName="mobile">
+              <div *ngIf="secondFormControl('mobile')?.invalid  &&
+              (secondFormControl('mobile')?.touched ||isSecondFormSubmit)"  class="text-danger">
+              <p><small *ngIf="secondFormControl('mobile')?.errors?.['required']">mobile field is required</small></p>
+              <p><small *ngIf="secondFormControl('mobile')?.errors?.['pattern']">Invalid mobile</small></p>
+              </div>
+            </div>
+          </div> 
+          <div class="row mb-4" >
+            <div class="col">
+              <input type="date" placeholder="Date" formControlName="date">
+              <div *ngIf="secondFormControl('date')?.invalid  &&
+              (secondFormControl('date')?.touched ||isSecondFormSubmit)"  class="text-danger">
+              <p><small *ngIf="secondFormControl('date')?.errors?.['required']">date field is required</small></p>
+              <p><small *ngIf="secondFormControl('date')?.errors?.['minlength']">Minium length must be 3</small></p>
+              </div>
+            </div>
+            <div class="col">
+              <input type="number" placeholder="Salary" formControlName="salary">
+              <div *ngIf="secondFormControl('salary')?.invalid  &&
+              (secondFormControl('salary')?.touched ||isSecondFormSubmit)"  class="text-danger">
+              <p><small *ngIf="secondFormControl('salary')?.errors?.['required']">salary field is required</small></p>
+              <p><small *ngIf="secondFormControl('salary')?.errors?.['minlength']">Minium length must be 3</small></p>
+              </div>
+            </div>
+            <div class="col">
+              <input type="number" placeholder="Project" formControlName="project">
+              <div *ngIf="secondFormControl('project')?.invalid  &&
+              (secondFormControl('project')?.touched ||isSecondFormSubmit)"  class="text-danger">
+              <p><small *ngIf="secondFormControl('project')?.errors?.['required']">project field is required</small></p>
+              <p><small *ngIf="secondFormControl('project')?.errors?.['minlength']">Minium length must be 3</small></p>
+              </div>
+            </div>
+          </div> 
+          <div class="d-flex align-items-center gap-3">
+            <button type="submit" class="btn add-btn">{{typeOfForm}}</button>
+            <button (click)="closeModal('custom-modal-1');" class="btn reset-btn" type="reset">Close</button>
+          </div>
+        </form>
+    </div>
+</div>
+<div class="custom-modal-background"></div>
+</modal>

@@ -1,0 +1,152 @@
+.note_page {
+  width: 80%;
+
+  margin: auto;
+
+  .note_con {
+    display: flex;
+    height: 70vh;
+    // align-items: center;
+    border-radius: 5px;
+    box-shadow: var(--primary-box-shadow);
+    overflow: hidden;
+    .note_side_bar {
+      width: 300px;
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 20px;
+      border-right: 1px solid #ccc;
+      transition: width 0.2s, transform 0.2s, padding-inline 0.5s;
+      &.active {
+        width: 0px;
+        padding-inline: 0;
+        transform: translateX(-300px);
+      }
+      /* width */
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: #b3b3b3;
+        border-radius: 5px;
+      }
+      .input_con {
+        display: flex;
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        input,
+        button {
+          border: 0;
+          background-color: transparent;
+          padding: 10px;
+          outline: none;
+          img {
+            width: 20px;
+          }
+        }
+        input {
+          width: 80%;
+          padding-right: 0;
+        }
+        button {
+          width: 20%;
+        }
+      }
+      .notes {
+        padding: 15px 20px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        &.transulate_ele {
+          transform: scale(1.03);
+          box-shadow: var(--primary-box-shadow);
+        }
+        .title_light {
+          color: black;
+        }
+        .remove_icon {
+          width: 15px;
+          fill: none;
+          stroke: black;
+          stroke-width: 2px;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+        }
+        app-title-bold {
+          &::ng-deep {
+            p {
+              display: inline-block;
+              width: 150px;
+              white-space: nowrap;
+              overflow: hidden !important;
+              text-overflow: ellipsis;
+            }
+          }
+        }
+      }
+    }
+    .note_main_con {
+      width: 100%;
+      .note_main_con_top {
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #ccc;
+        button {
+          border: 0;
+          background-color: transparent;
+          &.add_note_btn {
+            background-color: var(--blue-color);
+            padding: 5px 15px;
+            border-radius: 5px;
+            color: #fff;
+            font-size: var(--fs16);
+          }
+          img {
+            width: 20px;
+          }
+        }
+      }
+      .note_main_con_body {
+        padding: 40px;
+        textarea {
+          border: 1px solid #ccc;
+          outline: none;
+          border-radius: 5px;
+          padding: 10px;
+          margin-top: 10px;
+          /* width */
+          &::-webkit-scrollbar {
+            width: 6px;
+          }
+
+          /* Track */
+          &::-webkit-scrollbar-track {
+            background: transparent;
+          }
+
+          /* Handle */
+          &::-webkit-scrollbar-thumb {
+            background: #b3b3b3;
+            border-radius: 5px;
+          }
+        }
+        .color_changer {
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          border: 0;
+        }
+      }
+    }
+  }
+}

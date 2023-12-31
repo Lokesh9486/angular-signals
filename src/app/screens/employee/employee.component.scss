@@ -1,0 +1,98 @@
+.employee-con {
+  width: 80%;
+  margin: auto;
+  .search-con {
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--primary-box-shadow);
+    .input-con {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      input,
+      button {
+        border: 0;
+        background-color: transparent;
+        font-size: var(--fs15);
+        padding: 10px;
+        img {
+          width: 20px;
+        }
+      }
+    }
+    .add-btn {
+      background-color: var(--blue-color);
+      color: #fff;
+      padding: 6px 20px;
+      border-radius: 8px;
+      border: 0;
+      font-size: var(--fs15);
+    }
+  }
+  .table-con {
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--primary-box-shadow);
+    margin-block: 20px;
+    .delete-edit-icon {
+      border: 0;
+      background-color: transparent;
+      svg {
+        width: var(--fs23);
+        fill: transparent !important;
+        color: var(--svg-color);
+        stroke: currentColor;
+        stroke-width: 2px;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        background-color: transparent;
+      }
+    }
+    .prev_after_arrow {
+      button {
+        border: 0;
+        background-color: transparent;
+      }
+      svg {
+        width: var(--fs20);
+        color: var(--svg-color);
+        fill: currentColor !important;
+        stroke: currentColor;
+        stroke-width: 2px;
+      }
+    }
+    .select-per-page {
+      width: 70px;
+      border: 1px solid #ccc;
+      padding: 4px 6px;
+      border-radius: 4px;
+    }
+    .main-table-con {
+      height: 300px;
+      overflow-y: auto;
+      thead{
+        position: sticky;
+        top: 0;
+      }
+      /* width */
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: #b3b3b3;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+.custom-modal-body{
+  
+
+}

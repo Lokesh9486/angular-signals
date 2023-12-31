@@ -1,0 +1,237 @@
+.grid_container{
+    display: grid;
+    grid-template-areas: "item1 item2 item3 item4 item5 item6"
+                         "item7 item7 item7 item7 item8 item8"
+                         "item9 item9 item10 item10 item11 item11"
+                         "item12 item12 item13 item13 item13 item13";
+    justify-content: center;
+    grid-template-columns: 150px 150px 150px 150px 150px 150px;
+    gap: 30px;
+    padding: 20px;
+    .revenue_con{
+        grid-area: item7;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: var(--primary-box-shadow);
+        .revenue_topic{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .revenue_title_con{
+                p{
+                    margin: unset;
+                }
+            }
+        }
+        .revenue_body{
+            display: flex;
+            justify-content: space-around;
+            .revenue-chart{
+              width: 70%;
+              height: 300px;
+            }
+            .revenue_details{
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+              .total{
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                
+              }
+              .full-report{
+                border: 0;
+                background-color: var(--blue-color);
+                color: white;
+                font-size: var(--fs16);
+                padding: 10px;
+                border-radius: 5px;
+              }
+            }
+        }
+    }
+    .svgarrow{
+        width:80%;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2px;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        &.arrow-success{
+            color: #13deb9!important;
+        }
+        &.arrow-danger{
+            color: #fa896b!important;
+        }
+    }
+    .year_month_con{
+        grid-area: item8;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .yearly-con{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: var(--primary-box-shadow);
+            .pie_chart_con{
+                width: 120px;
+                height: 120px;
+            }
+        }
+        .monthly-con{
+            border-radius: 5px;
+            box-shadow: var(--primary-box-shadow);
+            .doller-sign{
+                width: 35px;
+                height: 35px;
+                background-color: var(--blue-color);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                svg{
+                    width: 60%;
+                    height: 60%;
+                    color: #fff;
+                    fill: none;
+                    stroke: currentColor;
+                    stroke-width: 2px;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                }
+            }
+            .yearly-body{
+                padding: 20px;
+            }
+            .area-chart{
+                width: 100%;
+                height: 69px;
+            }
+        }
+    }
+    .employee_con{
+        grid-area: item9;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: var(--primary-box-shadow);
+        .employee_chart{
+            height: 250px;
+        }
+    }
+    .customer_review_con{
+        grid-area: item10;
+        display: grid;
+        grid-template-columns: 150px 150px;
+        grid-template-areas: "itemsubcon11 itemsubcon12 "
+        "itemsubcon13 itemsubcon13 ";
+        gap:30px;
+        .item1{
+            grid-area: itemsubcon11;
+            border-radius: 5px;    
+            box-shadow: var(--primary-box-shadow);    
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .item_topic{
+                padding: 20px;
+            }
+            .customer_chart{
+                width: 100%;
+                height: 70px;
+            }
+        }
+        .item2{
+            grid-area: itemsubcon12;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: var(--primary-box-shadow);
+            .projects_chart{
+                width: 100%;
+                height: 80px;
+            }
+        }
+        .item3{
+            grid-area: itemsubcon13;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: var(--primary-box-shadow);
+            .top-review{
+                width: 60px;
+                height: 60px;
+                border-radius: 5px;
+
+            }
+            .list-of-review{
+                display: flex;
+                padding: 0;
+                padding-top: 20px;
+                li{
+                    list-style: none;
+                    img{
+                        margin-left: -7px;
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        border: 3px solid white;
+                    }
+                }
+            }
+        }
+    }
+    .best_seller_con{
+        grid-area: item11;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: var(--primary-box-shadow);
+        background-color: var(--blue-color);
+        .piggy_img{
+            width: 100%;
+        }
+        .top-con{
+            background-color: var(--blue-color);
+            p{
+                color: #fff ;
+            }
+        }
+        .bottom-con{
+            margin-top: -40px;
+            z-index: 2;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            position: relative;
+            p{
+                padding-bottom: 5px;
+            }
+            .progress{
+                margin-bottom: 10px;
+                height: 2px;
+            }
+        }
+    }
+    .weekly_con{
+        grid-area: item12;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: var(--primary-box-shadow);
+        .weekly-chart{
+            height: 200px;
+        }
+        
+    }
+    .top_project_con{
+        grid-area: item13;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: var(--primary-box-shadow);
+        
+        
+    }
+}

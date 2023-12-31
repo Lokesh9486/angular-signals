@@ -1,0 +1,37 @@
+.timer-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 5px;
+    padding-block: 15px;
+    gap: 10px;
+    
+    p{
+        margin: unset;
+    }
+}
+.violet{
+    background-color: #ecf2ff;
+    color: #5d87ff;
+}
+.orange{
+    background-color: #fef5e5;
+    color: #feae1f;
+}
+.darkBlue{
+    background-color: #e8f7ff;
+    color: #49beff;
+}
+.red{
+    background-color: #fdede8;
+    color: #fa896b;
+}
+.green{
+    background-color: #e6fffa;
+    color: #62deb9;
+}
+.light_blue{
+    background-color: #e8f7ff;
+    color: #49beff;
+}

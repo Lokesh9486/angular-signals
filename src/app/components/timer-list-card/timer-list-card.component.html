@@ -1,0 +1,13 @@
+<div [ngClass]="[class,'timer-card']" [style.grid-area]="'item'+(+index+1)">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 48 48"
+    width="48px"
+    height="48px"
+    [innerHTML]="svg"
+  >
+     
+  </svg>
+  <p>{{ name }}</p>
+  <p>{{ count }}</p>
+</div>

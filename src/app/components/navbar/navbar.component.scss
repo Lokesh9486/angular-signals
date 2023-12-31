@@ -1,0 +1,30 @@
+.navbar_section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 4;
+  ul {
+    padding: unset;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    li {
+      list-style: none;
+      button {
+        border: unset;
+        background-color: transparent;
+        img {
+          width: 20px;
+          &.user_logo {
+            width: 30px;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+  }
+}

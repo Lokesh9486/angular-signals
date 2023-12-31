@@ -1,0 +1,71 @@
+<section class="note_page">
+  <!-- <div class="note_topic">
+    <app-title-bold [title]="'Notes'"></app-title-bold>
+  </div> -->
+  <app-header-banner [title]="'Notes'"></app-header-banner>
+  <div class="note_con">
+    <div class="note_side_bar" [ngClass]="{'active':sideBarCollapsedTrue}">
+      <div class="input_con">
+        <input type="text" placeholder="Search notes" (input)="searchInput($event)"/>
+        <button type="button">
+          <img src="../../../assets/images/search.png" alt="" />
+        </button>
+      </div>
+      <app-title-bold
+        [title]="'All notes'"
+        [customClass]="'py-4'"
+      ></app-title-bold>
+      @for (item of notes; track $index) {
+        <div [ngClass]="['notes', item.color]" [class.transulate_ele]="$index==selectedNote" (click)="notesClicked($index)">
+          <app-title-bold [title]="item.note"></app-title-bold>
+          <div class="d-flex align-items-center justify-content-between">
+            <p class="title_light">{{item.date| date:"MMM dd, yyyy"}}</p>
+            <button type="button" class="btn p-0" (click)="deleteNote($event,$index)">
+              <svg
+                class="remove_icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M4 7l16 0"></path>
+                <path d="M10 11l0 6"></path>
+                <path d="M14 11l0 6"></path>
+                <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+                <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      }
+    </div>
+    <div class="note_main_con">
+      <div class="note_main_con_top">
+        <button type="button" (click)="sidebarCollapse()">
+          <img src="../../../assets/images/hamburger.png" alt="" />
+        </button>
+        <button type="button" class="add_note_btn" (click)="addNote()">Add Notes</button>
+      </div>
+      <div class="note_main_con_body">
+        <div class="d-flex flex-column">
+          <label class="title_bold">Edit Note</label>
+          <textarea name="" id="" cols="30" rows="5"
+           [value]="specificNote" [(ngModel)]="specificNote" (input)="textarea($event)"></textarea>
+        </div>
+        <div>
+          <app-title-bold
+            [title]="'Change Note Color'"
+            [customClass]="'py-4'"
+          ></app-title-bold>
+          <div class="d-flex align-items-center gap-2">
+            @for (item of
+            [["color-changer-dark-blue","dark-blue"],["color-changer-orange",'note-orange'],
+            ["color-changer-blue",'note-blue'],["color-changer-red",'note-yellow'],["color-changer-green",'note-green']];
+            track $index) {
+            <button [ngClass]="item[0]" class="color_changer" (click)="colorChange(item[1])"></button>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

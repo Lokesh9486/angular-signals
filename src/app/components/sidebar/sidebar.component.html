@@ -1,0 +1,33 @@
+<nav class="sidebar" [ngClass]="{'active':collapseSideBar}">
+  <div class="py-2 px-4">
+    <a href="/" class="logo_con">
+      <img ngSrc="../../../assets/images/logo.svg" fill priority />
+    </a>
+  </div>
+  <div class="sidebar_main_con" >
+    <sidebar-menu-title [title]="'HOME'" />
+    <app-sidebar-menu [data]="sideBarDataHome" />
+    <sidebar-menu-title [title]="'Apps'" />
+    <app-sidebar-menu [data]="sideBarDataApp" />
+  </div>
+  <div class="user_container">
+    <div class="user_secondary_con">
+      <img
+        src="../../../assets/images/user-1.jpg"
+        class="user_1_img"
+        alt="user-1"
+      />
+      <p class="d-flex flex-column">
+        <span class="user_name">Loky</span>
+        <span class="user_role">Developer</span>
+      </p>
+      <button type="button" class="logoout">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M7 6a7.75 7.75 0 1 0 10 0"></path>
+          <path d="M12 4l0 8"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>

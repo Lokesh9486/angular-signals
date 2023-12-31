@@ -1,0 +1,299 @@
+<div class="grid_container">
+  @for (item of timerCardData; track $index) {
+  <app-timer-list-card
+    [name]="item.name"
+    [count]="item.count"
+    [class]="item.class"
+    [svg]="item.svg | sanitizeHtml"
+    [index]="$index"
+  ></app-timer-list-card>
+  }
+  <div class="revenue_con">
+    <div class="revenue_topic">
+      <div class="revenue_title_con">
+        <app-title-bold [title]="'Revenue Updates'" ></app-title-bold>
+        <p class="title_light">Overview of Profile</p>
+      </div>
+      <div class="drop-button">
+        <button type="button" class="btn">March 2023</button>
+      </div>
+    </div>
+    <div class="revenue_body">
+      <div class="revenue-chart">
+        <highcharts-chart
+          [Highcharts]="highcharts"
+          [options]="chartOptions"
+          [ngStyle]="{ height: '100%', width: '100%', display: 'block' }"
+        ></highcharts-chart>
+      </div>
+      <div class="revenue_details">
+        <div class="total">
+            <app-menu-icon></app-menu-icon>
+          <div>
+            <app-title-bold [title]="'$63,489.50'" ></app-title-bold>
+            <p class="title_light">Total Earnings</p>
+          </div>
+        </div>
+        <app-common-legend>
+          <p header class="title_light">Earnings this month</p>
+          <app-title-bold body_con [title]="'$48,820'" ></app-title-bold>
+        </app-common-legend>
+        <app-common-legend>
+          <p header class="title_light">Expense this month</p>
+          <app-title-bold body_con [title]="'$28,820'" ></app-title-bold>
+        </app-common-legend>
+        <button type="button" class="full-report">View Full Report</button>
+      </div>
+    </div>
+  </div>
+  <div class="year_month_con">
+    <div class="yearly-con">
+      <div class="yearly-body">
+        <app-title-bold [title]="'Yearly Breakup'" ></app-title-bold>
+        <app-title-bold [title]="'$36,358'" ></app-title-bold>
+        <app-statistics-arrow [className]="'arrow_success'">
+          <svg
+            svgarrow
+            class="svgarrow arrow-success"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M17 7l-10 10"></path>
+            <path d="M8 7l9 0l0 9"></path>
+          </svg>
+        </app-statistics-arrow>
+        <div class="d-flex gap-4">
+          <app-common-legend>
+            <p header class="title_light">2023</p>
+          </app-common-legend>
+          <app-common-legend>
+            <p header class="title_light">2022</p>
+          </app-common-legend>
+        </div>
+      </div>
+      <div class="pie_chart_con">
+        <highcharts-chart
+          [Highcharts]="highcharts"
+          [options]="pieChartOptions"
+          [ngStyle]="{ height: '100%', width: '100%', display: 'block' }"
+        ></highcharts-chart>
+      </div>
+    </div>
+    <div class="monthly-con">
+      <div class="yearly-body">
+        <div class="d-flex align-items-center justify-content-between">
+          <app-title-bold body_con [title]="'Monthly Earnings'" ></app-title-bold>
+          <div class="doller-sign">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path
+                d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2"
+              ></path>
+              <path d="M12 3v3m0 12v3"></path>
+            </svg>
+          </div>
+        </div>
+        <app-title-bold body_con [title]="'$6,820'" ></app-title-bold>
+        <app-statistics-arrow [className]="'arrow_danger'">
+          <svg
+            svgarrow
+            class="svgarrow arrow-danger"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M17 7l-10 10"></path>
+            <path d="M8 7l9 0l0 9"></path>
+          </svg>
+        </app-statistics-arrow>
+      </div>
+      <div class="area-chart">
+        <highcharts-chart
+          [Highcharts]="highcharts"
+          [options]="areaChartMonthlyOptions"
+          [ngStyle]="{ height: '100%', width: '100%', display: 'block' }"
+        ></highcharts-chart>
+      </div>
+    </div>
+  </div>
+  <div class="employee_con">
+    <app-title-bold body_con [title]="'Employee Salary'" ></app-title-bold>
+    <p class="title_light">Every month</p>
+    <div class="employee_chart">
+      <highcharts-chart
+        [Highcharts]="highcharts"
+        [options]="employeeChrtOptions"
+        [ngStyle]="{ height: '100%', width: '100%', display: 'block' }"
+      ></highcharts-chart>
+    </div>
+    <div class="d-flex align-items-center justify-content-between p-3">
+      <div class="d-flex gap-3">
+        <app-menu-icon></app-menu-icon>
+        <div>
+          <p class="title_light">Salary</p>
+          <app-title-bold body_con [title]="'$36,358'" ></app-title-bold>
+        </div>
+      </div>
+      <div class="d-flex gap-3">
+        <app-menu-icon></app-menu-icon>
+        <div >
+          <p class="title_light">Salary</p>
+          <app-title-bold body_con [title]="'$36,358'" ></app-title-bold>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="customer_review_con">
+     <div class="item1">
+      <div class="item_topic">
+        <p class="title_light">Customers</p>
+        <app-title-bold body_con [title]="'$36,358'" ></app-title-bold>
+       <app-statistics-arrow [className]="'arrow_danger'">
+         <svg
+           svgarrow
+           class="svgarrow arrow-danger"
+           xmlns="http://www.w3.org/2000/svg"
+           viewBox="0 0 24 24"
+         >
+           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+           <path d="M17 7l-10 10"></path>
+           <path d="M8 7l9 0l0 9"></path>
+         </svg>
+       </app-statistics-arrow>
+      </div>
+      <div class="customer_chart">
+        <highcharts-chart
+        [Highcharts]="highcharts"
+        [options]="areaChartMonthlyOptions"
+        [ngStyle]="{ height: '100%', width: '100%', display: 'block' }"
+      ></highcharts-chart>
+      </div>
+     </div>
+     <div class="item2">
+        <p class="title_light">Projects</p>
+        <app-title-bold body_con [title]="'$36,358'" ></app-title-bold>
+       <app-statistics-arrow [className]="'arrow_danger'">
+         <svg
+           svgarrow
+           class="svgarrow arrow-danger"
+           xmlns="http://www.w3.org/2000/svg"
+           viewBox="0 0 24 24"
+         >
+           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+           <path d="M17 7l-10 10"></path>
+           <path d="M8 7l9 0l0 9"></path>
+         </svg>
+       </app-statistics-arrow>
+      <div class="projects_chart">
+        <highcharts-chart
+        [Highcharts]="highcharts"
+        [options]="customerChrtOptions"
+        [ngStyle]="{ height: '100%', width: '100%', display: 'block' }"
+      ></highcharts-chart>
+      </div>
+     </div>
+     <div class="item3">
+      <div class="d-flex gap-2">
+        <img class="top-review" src="../../../assets/images/user-1.jpg" alt="">
+        <div>
+          <app-title-bold body_con [title]="'Super awesome, Vue coming soon!'" ></app-title-bold>
+          <p class="title_light">22Mrach,2023</p>
+        </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-between">
+        <ul class="list-of-review">
+          @for (item of [2,3,4,5]; track $index) {
+            <li>
+              <img src='../../../assets/images/user-{{item}}.jpg' alt="">
+            </li>
+          }
+        </ul>
+        <div class="six-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 20l-3 -3h-2a3 3 0 0 1 -3 -3v-6a3 3 0 0 1 3 -3h10a3 3 0 0 1 3 3v6a3 3 0 0 1 -3 3h-2l-3 3"></path>
+            <path d="M8 9l8 0"></path>
+            <path d="M8 13l6 0"></path>
+          </svg>
+        </div>
+      </div>
+     </div>
+  </div>
+  <div class="best_seller_con">
+    <div class="top-con">
+      <app-title-bold body_con [title]="'Best selling products'" ></app-title-bold>
+      <p class="title_light">Overview 2023</p>
+      <img src="../../../assets/images/piggy.png" class="piggy_img" alt="">
+    </div>
+    <div class="bottom-con">
+      @for (item of [1,2]; track $index) {
+        <div class="d-flex align-items-center justify-content-between">
+          <div>
+            <app-title-bold body_con [title]="'Material Pro'" ></app-title-bold>
+            <p class="title_light">$23,568</p>
+          </div>
+          <p class="notify dark-blue">55%</p>
+        </div>
+        <div class="progress">
+          <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      }
+    </div>
+     
+  </div>
+  <div class="weekly_con">
+    <app-title-bold body_con [title]="'Weekly Stats'" ></app-title-bold>
+    <p class="title_light">Average Sales</p>
+    <div class="weekly-chart">
+      <highcharts-chart
+        [Highcharts]="highcharts"
+        [options]="areaChartMonthlyOptions"
+        [ngStyle]="{ height: '100%', width: '100%', display: 'block' }"
+      ></highcharts-chart>
+    </div>
+    @for (item of [1,2,3]; track $index) {
+      <div class="d-flex justify-content-between align-items-center pt-4">
+        <div class="d-flex align-items-center gap-3">
+          <app-menu-icon></app-menu-icon>
+          <div>
+            <app-title-bold body_con [title]="'Top Sales'" ></app-title-bold>
+
+            <p class="title_light">ohnath Doe</p> </div>
+        </div>
+        <p class="notify dark-blue">+68</p>
+      </div>
+    }
+  </div>
+  <div class="top_project_con">
+    <div class="d-flex align-items-center justify-content-between">
+      <div>
+        <app-title-bold body_con [title]="'Top Project'" ></app-title-bold>
+        <p class="title_light">Best Products</p>
+      </div>
+      <button type="button" class="btn">March 2023</button>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Assigned</th>
+          <th scope="col">Name</th>
+          <th scope="col">Priority</th>
+          <th scope="col">Budget</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of assignedData; track $index) {
+          <tr>
+            <td>
+              <app-user-details [data]="item"></app-user-details>
+            </td>
+            <td class="title_light">Elite Admin</td>
+            <td><p class="notify dark-blue d-inline">Otto</p></td>
+            <td class="title_light">$3.9K</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
